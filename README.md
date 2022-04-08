@@ -25,7 +25,5 @@ déjà existante grâce à l'Active Directory.
 
 
 
-# Team
 
-Author = raiko | raiko@dykiz.com
 Version = v2
