@@ -4,7 +4,7 @@ ADST is a research and management tool developed by Swiss students based on the 
 
 # Commands
 ### Info commands
-|Command|Description|
+|**Command**|**Description**|
 |:------|:----------|
 | help  | List all commands of the tool
 |InfoUser|Return user information from his SamAccountName|
