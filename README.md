@@ -3,7 +3,7 @@
 ADST is a research and management tool developed by Swiss students based on the functionalities of the Microsoft Active Directory LDAP directory and Azure Active Directory.
 
 # Commands
-## Info commands
+### Info commands
 |Command|Description|
 |:-----:|:---------:|
 | help  | List all commands of the tool
@@ -12,7 +12,7 @@ ADST is a research and management tool developed by Swiss students based on the 
 |find_dep|Find the department of a user
 |find_bydep|List all users of a department
 
-## Utility Commands
+### Utility Commands
 |Command|Description|
 |:-----:|:---------:|
 |AllUsers|Returns all users in Active Directory
@@ -20,7 +20,7 @@ ADST is a research and management tool developed by Swiss students based on the 
 |check_sam|Returns True if SamAccountName is already used
 |powershell|Open a PowerShell shell
 
-## Azure AD commands
+### Azure AD commands
 |Command|Description|
 |:-----:|:---------:|
 |Bouffe!|Synchronizes AD and AAD
