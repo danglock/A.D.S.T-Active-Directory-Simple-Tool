@@ -5,7 +5,7 @@ ADST is a research and management tool developed by Swiss students based on the 
 # Commands
 ### Info commands
 |Command|Description|
-|:-----:|:---------:|
+|:------|:----------|
 | help  | List all commands of the tool
 |InfoUser|Return user information from his SamAccountName|
 |find   |Find the SamAccountName of a user using his name or firstname
@@ -14,7 +14,7 @@ ADST is a research and management tool developed by Swiss students based on the 
 
 ### Utility Commands
 |Command|Description|
-|:-----:|:---------:|
+|:------|:----------|
 |AllUsers|Returns all users in Active Directory
 |get_password|Returns a random password
 |check_sam|Returns True if SamAccountName is already used
@@ -22,7 +22,7 @@ ADST is a research and management tool developed by Swiss students based on the 
 
 ### Azure AD commands
 |Command|Description|
-|:-----:|:---------:|
+|:------|:----------|
 |Bouffe!|Synchronizes AD and AAD
 
 # Requirements
