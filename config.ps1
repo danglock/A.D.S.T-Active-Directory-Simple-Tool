@@ -1,0 +1,1 @@
+$AAD_Server = "YOUR_AAD_SERVER_HOSTNAME"
