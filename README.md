@@ -60,7 +60,13 @@ déjà existante grâce à l'Active Directory.
 git clone https://github.com/danglock/A.D.S.T-Active-Directory-Simple-Tool/archive/refs/heads/main.zip
 ```
 or
+
 [Download the repository](https://github.com/danglock/A.D.S.T-Active-Directory-Simple-Tool/archive/refs/heads/main.zip)
 
 
+# Usage
+
+Launch **launch.bat** file
+
+***
 Version = v2
