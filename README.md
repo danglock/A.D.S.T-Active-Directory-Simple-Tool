@@ -56,7 +56,7 @@ déjà existante grâce à l'Active Directory.
 # Installation
 <h3><strong>Windows </strong>&nbsp;<img src="https://cdn.icon-icons.com/icons2/1488/PNG/512/5314-windows_102509.png" alt="" width="20" height="20" /></h3>
 
-[Télécharger le repository / Download the repository](https://github.com/danglock/V.E.T-Vigenere-Encryption-Tool/archive/refs/heads/main.zip)
+[Download the repository](https://github.com/danglock/V.E.T-Vigenere-Encryption-Tool/archive/refs/heads/main.zip)
 
 
 Version = v2
