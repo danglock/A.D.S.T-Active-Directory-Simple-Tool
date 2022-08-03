@@ -42,7 +42,10 @@ Aussi, certaines commandes nécéssitent un droit d'admin local sur votre machin
 
 Pour une utilisation plus poussée, installez les modules suivants :
 
-- 
+- EXO V2
+```
+Install-Module -Name ExchangeOnlineManagement
+```
 - 
 - 
 
