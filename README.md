@@ -1,10 +1,9 @@
 # ADST - Active Directory Simple Tool
 
-ADST est un outil de recherches développé par des étudiants suisse se basant sur l'annuaire LDAP Microsoft Active Directory.
+ADST is a research and management tool developed by Swiss students based on the functionalities of the Microsoft Active Directory LDAP directory and Azure Active Directory.
 
 
-
-# Prerequis
+# Requirements
 
 Pour une utilisation simple, il suffit d'être connecté avec un compte utilisateur Enregistré dans l'AD, sur le domaine.
 Aussi, certaines commandes nécéssitent un droit d'admin local sur votre machine.
