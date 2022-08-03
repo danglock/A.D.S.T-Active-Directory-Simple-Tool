@@ -13,7 +13,7 @@ ADST is a research and management tool developed by Swiss students based on the 
 |find_bydep|List all users of a department
 
 ### Utility Commands
-|Command|Description|
+|**Command**|**Description**|
 |:------|:----------|
 |AllUsers|Returns all users in Active Directory
 |get_password|Returns a random password
@@ -21,7 +21,7 @@ ADST is a research and management tool developed by Swiss students based on the 
 |powershell|Open a PowerShell shell
 
 ### Azure AD commands
-|Command|Description|
+|**Command**|**Description**|
 |:------|:----------|
 |Bouffe!|Synchronizes AD and AAD
 
