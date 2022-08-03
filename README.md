@@ -54,6 +54,7 @@ déjà existante grâce à l'Active Directory.
 
 
 # Installation
+<h3><strong>Windows </strong>&nbsp;<img src="https://simpleicons.org/icons/windows.svg" alt="" width="20" height="20" /></h3>
 
 
 Version = v2
