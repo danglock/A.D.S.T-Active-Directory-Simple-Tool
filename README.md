@@ -43,9 +43,6 @@ For a more complete use, install the following modules:
 Install-Module ExchangeOnlineManagement
 ```
 > Il sera peut-être nécessaire d'adapter les clés de registres
-- 
-- 
-
 
 
 # Infrastructure hybride AD / AAD
