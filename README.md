@@ -24,7 +24,7 @@ Install-Module ExchangeOnlineManagement
 > Il sera peut-être nécessaire d'adapter les clés de registres
 
 
-# Infrastructure hybride AD / AAD
+# Hybrid AD / AAD infrastructure
 
 Il est possible de synchroniser une infrastructure cloud Azure Acrive Directory avec une infrastructure Active Directory
 déjà existante grâce à l'Active Directory.
