@@ -43,7 +43,7 @@ Aussi, certaines commandes nécéssitent un droit d'admin local sur votre machin
 Pour une utilisation plus poussée, installez les modules suivants :
 
 - [EXO V2](https://docs.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2#:~:text=To%20install%20the%20EXO%20V2,module%20from%20the%20PowerShell%20Gallery.)
-```
+```PowerShell
 Install-Module -Name ExchangeOnlineManagement
 ```
 > Il sera peut-être nécessaire d'adapter les clés de registres
