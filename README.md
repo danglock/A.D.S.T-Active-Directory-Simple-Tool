@@ -1,6 +1,6 @@
 # ADST - Active Directory Simple Tool
 
-ADST is a research and management tool developed by Swiss students based on the functionalities of the Microsoft Active Directory LDAP directory and Azure Active Directory.
+**ADST** is a research and management tool developed by Swiss students based on the functionalities of the Microsoft Active Directory LDAP directory and Azure Active Directory.
 
 
 - [Requirements](#requirements)
