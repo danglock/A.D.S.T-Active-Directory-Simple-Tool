@@ -11,28 +11,7 @@ ADST is a research and management tool developed by Swiss students based on the 
 [Usage](#usage)
 
 
-# Commands
-### Info commands
-|**Command**|**Description**|
-|:------|:----------|
-| help  | List all commands of the tool
-|InfoUser|Return user information from his SamAccountName|
-|find   |Find the SamAccountName of a user using his name or firstname
-|find_dep|Find the department of a user
-|find_bydep|List all users of a department
 
-### Utility Commands
-|**Command**|**Description**|
-|:------|:----------|
-|AllUsers|Returns all users in Active Directory
-|get_password|Returns a random password
-|check_sam|Returns True if SamAccountName is already used
-|powershell|Open a PowerShell shell
-
-### Azure AD commands
-|**Command**|**Description**|
-|:------|:----------|
-|Bouffe!|Synchronizes AD and AAD
 
 # Requirements
 
@@ -63,6 +42,32 @@ git clone https://github.com/danglock/A.D.S.T-Active-Directory-Simple-Tool/archi
 # Usage
 
 Launch **launch.bat** file
+
+
+## Commands
+### Info commands
+|**Command**|**Description**|
+|:------|:----------|
+| help  | List all commands of the tool
+|InfoUser|Return user information from his SamAccountName|
+|find   |Find the SamAccountName of a user using his name or firstname
+|find_dep|Find the department of a user
+|find_bydep|List all users of a department
+
+### Utility Commands
+|**Command**|**Description**|
+|:------|:----------|
+|AllUsers|Returns all users in Active Directory
+|get_password|Returns a random password
+|check_sam|Returns True if SamAccountName is already used
+|powershell|Open a PowerShell shell
+
+### Azure AD commands
+|**Command**|**Description**|
+|:------|:----------|
+|Bouffe!|Synchronizes AD and AAD
+
+
 
 
 ***
