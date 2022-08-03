@@ -40,7 +40,7 @@ For a more complete use, install the following modules:
 
 - [EXO V2](https://docs.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2#:~:text=To%20install%20the%20EXO%20V2,module%20from%20the%20PowerShell%20Gallery.), PowerShell command :
 ```PowerShell
-Install-Module -Name ExchangeOnlineManagement
+Install-Module ExchangeOnlineManagement
 ```
 > Il sera peut-être nécessaire d'adapter les clés de registres
 - 
