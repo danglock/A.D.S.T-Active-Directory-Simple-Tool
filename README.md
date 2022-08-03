@@ -2,9 +2,13 @@
 
 ADST is a research and management tool developed by Swiss students based on the functionalities of the Microsoft Active Directory LDAP directory and Azure Active Directory.
 
+[Requirements](#requirements)
+
+[Installation](#installation)
+
 [Commands](#commands)
 
-[Requirements](#requirements)
+
 
 # Commands
 ### Info commands
@@ -31,6 +35,7 @@ ADST is a research and management tool developed by Swiss students based on the 
 
 # Requirements
 
+
 Pour une utilisation simple, il suffit d'être connecté avec un compte utilisateur Enregistré dans l'AD, sur le domaine.
 Aussi, certaines commandes nécéssitent un droit d'admin local sur votre machine.
 
@@ -48,7 +53,7 @@ Il est possible de synchroniser une infrastructure cloud Azure Acrive Directory 
 déjà existante grâce à l'Active Directory.
 
 
-
+# Installation
 
 
 Version = v2
