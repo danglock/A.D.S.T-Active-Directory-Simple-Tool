@@ -36,13 +36,9 @@ ADST is a research and management tool developed by Swiss students based on the 
 
 # Requirements
 
+For a more complete use, install the following modules:
 
-Pour une utilisation simple, il suffit d'être connecté avec un compte utilisateur Enregistré dans l'AD, sur le domaine.
-Aussi, certaines commandes nécéssitent un droit d'admin local sur votre machine.
-
-Pour une utilisation plus poussée, installez les modules suivants :
-
-- [EXO V2](https://docs.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2#:~:text=To%20install%20the%20EXO%20V2,module%20from%20the%20PowerShell%20Gallery.)
+- [EXO V2](https://docs.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2#:~:text=To%20install%20the%20EXO%20V2,module%20from%20the%20PowerShell%20Gallery.), PowerShell command :
 ```PowerShell
 Install-Module -Name ExchangeOnlineManagement
 ```
