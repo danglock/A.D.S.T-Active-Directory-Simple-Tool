@@ -46,6 +46,7 @@ Pour une utilisation plus poussée, installez les modules suivants :
 ```
 Install-Module -Name ExchangeOnlineManagement
 ```
+> Il sera peut-être nécessaire d'adapter les clés de registres
 - 
 - 
 
