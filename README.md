@@ -8,6 +8,7 @@ ADST is a research and management tool developed by Swiss students based on the 
 
 [Commands](#commands)
 
+[Usage](#usage)
 
 
 # Commands
@@ -65,6 +66,7 @@ git clone https://github.com/danglock/A.D.S.T-Active-Directory-Simple-Tool/archi
 # Usage
 
 Launch **launch.bat** file
+
 
 ***
 Version = v2
