@@ -67,7 +67,11 @@ Launch **launch.bat** file
 |:------|:----------|
 |Bouffe!|Synchronizes AD and AAD
 
+## Coming soon
 
+- Bulk operations commands (export/import users...)
+- Copy of users
+- Vulnerability scan
 
 
 ***
