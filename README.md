@@ -67,7 +67,7 @@ Launch **launch.bat** file
 | check_sam    | Returns True if SamAccountName is already used |
 | powershell   | Open a PowerShell shell                        |
 
-# Export / Import commands
+### Export / Import commands
 
 | **Command**  | **Description**                                                                 |
 |:-------------|:--------------------------------------------------------------------------------|
