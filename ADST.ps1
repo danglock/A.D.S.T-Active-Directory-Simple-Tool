@@ -1,9 +1,16 @@
 import-module ActiveDirectory
 . .\config.ps1
 
-
 [bool] $script_launched = $true
 
+
+
+Write-Host "Loading script..." -ForegroundColor "Yellow"
+$users_count = (Get-ADUser -Filter *).Count
+$groups_count = (Get-ADGroup -Filter *).Count
+$computers_count = (Get-ADComputer -Filter *).Count
+
+Clear-Host
 
 function welcome {
     Write-Host "`n     #    ######   #####  ####### "
@@ -12,11 +19,15 @@ function welcome {
     Write-Host "  #     # #     #  #####     #    "
     Write-Host "  ####### #     #       #    #    "
     Write-Host "  #     # #     # #     #    #    "
-    Write-Host "  #     # ######   #####     #    "
-    Write-Host "`nWelcome,"
+    Write-Host "  #     # ######   #####     #    `n"
+    Write-Host "- [$users_count] users loaded"
+    Write-Host "- [$groups_count] groups loaded"
+    Write-Host "- [$computers_count] computers loaded`n"
     Write-Host "Type " -NoNewline
     Write-Host "help " -ForegroundColor "Yellow" -NoNewline
-    Write-Host "for the list of all commands`n"
+    Write-Host "for the list of commands`n"
+    
+
 }
 
 welcome
