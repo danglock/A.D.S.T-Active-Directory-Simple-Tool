@@ -48,6 +48,12 @@ Launch **launch.bat** file
 
 
 ## Commands
+
+- [Info commands](#info-commands)
+- [Utility commands](#utility-commands)
+- [Azure AD commands](#azure-ad-commands)
+
+
 ### Info commands
 |**Command**|**Description**|
 |:------|:----------|
