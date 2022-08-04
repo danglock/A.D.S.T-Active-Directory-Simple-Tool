@@ -54,9 +54,11 @@ function help_adst {
     Write-Output "- export_users => This command exports all AD users to a CSV file. The user must choose the path"
     Write-Output "- export_user  => This command exports the attributes of the chosen user"
 
-    Write-Output "`n[AAD commands]"
-    Write-Output "=============="
-    Write-Output "- sync      => Synchronizes AD and AAD."
+    if ( $use_AAD -eq $true ) {
+        Write-Output "`n[AAD commands]"
+        Write-Output "=============="
+        Write-Output "- sync      => Synchronizes AD and AAD."
+    }
 
     Write-Output ""
     # Commandes manquantes dans le help : clear, exit
@@ -129,12 +131,6 @@ while ($script_launched -eq $true) {
 
         Clear-Host
     
-    } elseif ($choix_utilisateur -ieq "sync") {
-
-        Clear-Host
-        Write-Host "`nPushing on $AAD_Server..." -ForegroundColor "Yellow"
-        sync | Format-Table
-
     } elseif ($choix_utilisateur -ieq "allusers") {
 
         Get-ADUSER -LDAPFilter '(!userAccountControl:1.2.840.113556.1.4.803:=2)'
@@ -403,6 +399,33 @@ while ($script_launched -eq $true) {
     } elseif ($choix_utilisateur -ieq "exit") {
         
         break
+
+
+
+
+    # CI-DESSOUS LES COMMANDES AAD :
+    } elseif ($choix_utilisateur -ieq "sync") {
+
+        if ( $use_AAD -eq $true ) {
+
+            Clear-Host
+            Write-Host "`nPushing on $AAD_Server..." -ForegroundColor "Yellow"
+            sync | Format-Table
+
+        } else {
+            Write-Host "Please configure an AAD server in config file to use this command." -ForegroundColor "Red"
+        }
+
+    
+
+
+
+
+
+
+
+
+
 
     } else {
 
