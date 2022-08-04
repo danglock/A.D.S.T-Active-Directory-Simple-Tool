@@ -67,10 +67,16 @@ Launch **launch.bat** file
 | check_sam    | Returns True if SamAccountName is already used |
 | powershell   | Open a PowerShell shell                        |
 
+# Export / Import commands
+
+| **Command**  | **Description**                                                                 |
+| export_users | This command exports all AD users to a CSV file. The user must choose the path. |
+
+
 ### Azure AD commands
 
-| **Command** | **Description**         |
-|:------------|:------------------------|
+| **Command** | **Description**                                                                           |
+|:------------|:------------------------------------------------------------------------------------------|
 | sync        | Synchronizes AD and AAD. Open a new session on the AAD server, then run a synchronisation |
 
 ## Coming soon
