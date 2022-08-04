@@ -71,7 +71,7 @@ Launch **launch.bat** file
 
 | **Command** | **Description**         |
 |:------------|:------------------------|
-| Bouffe!     | Synchronizes AD and AAD. Open a new session on the AAD server, then run a synchronisation |
+| sync        | Synchronizes AD and AAD. Open a new session on the AAD server, then run a synchronisation |
 
 ## Coming soon
 
