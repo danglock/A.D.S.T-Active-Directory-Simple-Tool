@@ -1,7 +1,26 @@
+import-module ActiveDirectory
 . .\config.ps1
 
+
 [bool] $script_launched = $true
-############################## DECLARATION DE FONCTIONS - BEGIN
+
+
+function welcome {
+    Write-Host "`n     #    ######   #####  ####### "
+    Write-Host "    # #   #     # #     #    #    "
+    Write-Host "   #   #  #     # #          #    "
+    Write-Host "  #     # #     #  #####     #    "
+    Write-Host "  ####### #     #       #    #    "
+    Write-Host "  #     # #     # #     #    #    "
+    Write-Host "  #     # ######   #####     #    "
+    Write-Host "`nWelcome,"
+    Write-Host "Type " -NoNewline
+    Write-Host "help " -ForegroundColor "Yellow" -NoNewline
+    Write-Host "for the list of all commands`n"
+}
+
+welcome
+
 function help_adst {
     Write-Output "[Info commands]"
     Write-Output "==============="
@@ -10,6 +29,7 @@ function help_adst {
     Write-Output "- find         => Find the SamAccountName of a user using his name or firstname"
     Write-Output "- find_dep     => Find the department of a user"
     Write-Output "- find_bydep   => List all users of a department"
+    Write-Output "- get_locked   => This command returns all users whose account is locked out"
 
     Write-Output "`n[Utility commands]"
     Write-Output "=================="
@@ -18,17 +38,18 @@ function help_adst {
     Write-Output "- check_sam    => Returns True if SamAccountName is already used"
     Write-Output "- powershell   => Open a PowerShell shell"
 
+    Write-Output "`n[Import / Export]"
+    Write-Output "================="
+    Write-Output "- export_users => This command exports all AD users to a CSV file. The user must choose the path"
+    Write-Output "- export_user  => This command exports the attributes of the chosen user"
 
     Write-Output "`n[AAD commands]"
     Write-Output "=============="
-    Write-Output "- Bouffe!      => Synchronizes AD and AAD."
+    Write-Output "- sync      => Synchronizes AD and AAD."
 
     Write-Output ""
-    
+    # Commandes manquantes dans le help : clear, exit
 }
-# Exit
-# PowerShell
-
 
 
 function Test-ADUser {
@@ -37,7 +58,8 @@ function Test-ADUser {
       [String] $sAMAccountName
     )
     $null -ne ([ADSISearcher] "(sAMAccountName=$sAMAccountName)").FindOne()
-  }
+}
+
 
 function New-RandomPassword {
     [CmdletBinding()]
@@ -72,47 +94,15 @@ function New-RandomPassword {
 }
 
 
-Function Remove-StringSpecialCharacters
-{
-
-   Param([string]$String)
-
-   $String -replace 'é', 'e' `
-           -replace 'è', 'e' `
-           -replace 'ç', 'c' `
-           -replace 'ë', 'e' `
-           -replace 'à', 'a' `
-           -replace 'ö', 'o' `
-           -replace 'ô', 'o' `
-           -replace 'ü', 'u' `
-           -replace 'ï', 'i' `
-           -replace 'î', 'i' `
-           -replace 'â', 'a' `
-           -replace 'ê', 'e' `
-           -replace 'û', 'u' `
-           -replace '-', '' `
-           -replace ' ', '' `
-           -replace '/', '' `
-           -replace '\*', '' `
-           -replace "'", "" 
-}
 
 
-
-
-function Bouffe! {
-
-    Write-Host "Pushing on... $AAD_Server"
-
+function sync {
     $session = New-PSSession -ComputerName $AAD_Server
     Invoke-Command -Session $session -ScriptBlock {Import-Module -Name 'ADSync'}
     Invoke-Command -Session $session -ScriptBlock {Start-ADSyncSyncCycle -PolicyType Delta}
     Remove-PSSession $session
 }
 
-############################## DECLARATION DE FONCTIONS - END
-
-help_adst
 
 
 while ($script_launched -eq $true) {
@@ -128,10 +118,11 @@ while ($script_launched -eq $true) {
 
         Clear-Host
     
-    } elseif ($choix_utilisateur -ieq "Bouffe!") {
+    } elseif ($choix_utilisateur -ieq "sync") {
 
-        Bouffe!
-        continue
+        Clear-Host
+        Write-Host "`nPushing on $AAD_Server..." -ForegroundColor "Yellow"
+        sync | Format-Table
 
     } elseif ($choix_utilisateur -ieq "allusers") {
 
@@ -142,7 +133,67 @@ while ($script_launched -eq $true) {
         Clear-Host
         $user_to_find = Read-Host -Prompt "Enter username (SamAccountName)"
         GET-ADUSER -Identity $user_to_find -Properties c, CanonicalName, co, Department, initials, title, st, ipPhone, manager, whenChanged, whenCreated
-    
+
+
+
+
+
+
+    } elseif ( $choix_utilisateur -ieq "get_locked" ) {
+        Clear-Host
+        $compteur = 0
+
+        $locked_users = @()
+        Search-ADAccount -LockedOut | Select-Object Name, SamAccountName, AccountExpirationDate, LastLogonDate | ForEach-Object {
+            $compteur += 1
+            $locked_users += New-Object -TypeName psobject -Property @{Id="[$compteur]"; Name=$_.Name; SamAccountName=$_.SamAccountName; AccountExpirationDate=$_.AccountExpirationDate; LastLogonDate=$_.LastLogonDate}
+        }
+
+        $locked_users | Select-Object Id, Name, SamAccountName, AccountExpirationDate, LastLogonDate| Format-Table
+
+        Write-Host "Commands:`n- unlock <id>`n- unlock_all`n" -ForegroundColor "Yellow"
+
+        [bool] $locked_users_menu = $true
+
+        while ( $locked_users_menu -eq $true ) {
+            $locked_user_choice = Read-Host -Prompt "Enter a command (unlocking) "
+
+            if ( $locked_user_choice -ieq "unlock" ) {
+                $user_to_unlock_id = Read-Host -Prompt "User Id "
+
+                ForEach ( $user in $locked_users ) {
+
+                    if ( $user.Id -eq "[$user_to_unlock_id]" ) {
+                        $name = $user.Name
+                        Write-Host "Trying to unlock $name" -ForegroundColor "Yellow"
+                        Unlock-ADAccount -Identity $user.SamAccountName
+                    }
+                }
+
+            } elseif ( $locked_user_choice -ieq "unlock_all" ) {
+                ForEach ( $user in $locked_users ) {
+                    Unlock-ADAccount -Identity $user.SamAccountName
+                }
+            } elseif ($locked_user_choice -ieq "exit") {
+                Write-Host "return..." -ForegroundColor "Yellow"
+                Start-Sleep -Seconds 1
+                Clear-Host
+                break
+            }else {
+                Write-Host "Unknown command" -ForegroundColor "Red"
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
     } elseif ($choix_utilisateur -ieq "find") {
     
         Clear-Host
@@ -159,6 +210,72 @@ while ($script_launched -eq $true) {
         powershell.exe
         Clear-Host
         help_adst
+
+
+
+
+
+
+
+
+
+
+
+    } elseif ($choix_utilisateur -ieq "export_users") {
+
+        $export_path = Read-Host -Prompt "Path to export "
+
+        if ( $export_path.EndsWith(".csv" )) {
+            Write-Host "Exporting users to $export_path"
+        } elseif ($export_path -ieq ""){
+            Write-Host "No path selected... Exporting to .export.csv"
+            $export_path = "export.csv"
+        } else {
+            $export_path += ".csv"
+            Write-Host "Exporting users to $export_path"
+        }
+
+        Get-ADUser -Filter * -Properties * | Select-Object DisplayName, GivenName, Surname, SamAccountName, Mail, Telephonenumber, Office, Department, Title, Description | export-csv -encoding UTF8 -path $export_path -NoTypeInformation -Delimiter ";"
+
+        Write-Host "OK" -ForegroundColor "Green"
+        Start-Sleep -Seconds 1.5
+        Clear-Host
+        help_adst
+
+
+
+
+
+
+
+
+
+
+
+    } elseif ( $choix_utilisateur -ieq "export_user" ) {
+
+        $user = Read-Host -Prompt "User to export (SamAccountName) "
+
+        $path = Read-Host -Prompt "Path to export "
+
+        if ( $path.EndsWith(".csv" )) {
+            Write-Host "Exporting users to $path"
+        } elseif ($path -ieq ""){
+            Write-Host "No path selected... Exporting to .export.csv"
+            $path = "export.csv"
+        } else {
+            $path += ".csv"
+            Write-Host "Exporting users to $path"
+        }
+
+        Get-ADUser -Identity $user -Properties * | export-csv -encoding UTF8 -path $path -NoTypeInformation -Delimiter ";"
+
+
+
+
+
+
+
 
     } elseif ($choix_utilisateur -ieq "find_dep") {
 
@@ -177,6 +294,14 @@ while ($script_launched -eq $true) {
         Write-Output "Recherche dans departement : $departement_like"
 	    Get-ADUser -Filter 'department -like $departement_like' -Properties * | Select-Object name , UserPrincipalName,samaccountname,displayname
     
+
+
+
+
+
+
+
+
     } elseif ($choix_utilisateur -ieq "copy_user") {
 
         Clear-Host
@@ -207,6 +332,9 @@ while ($script_launched -eq $true) {
             $new_employee_username = [Text.Encoding]::ASCII.GetString([Text.Encoding]::GetEncoding("Cyrillic").GetBytes($new_employee_prenom.Substring(0,1).ToLower()+$new_employee_nom.ToLower()))
 
             
+            
+
+            
             ############################ VREIF SI USERNAME EXISTE DEJA
 
             while ($null -ne ([ADSISearcher] "(sAMAccountName=$new_employee_username)").FindOne()){
@@ -214,8 +342,15 @@ while ($script_launched -eq $true) {
                 $new_employee_username = Read-Host -Prompt "Manually enter a username "
             }
 
+
+            
+    
+
+
+
             Write-Host "Generating a password..." -ForegroundColor "Yellow"
             $new_employee_password = New-RandomPassword -Length 10 -Uppercase 4 -SpecialCharacters 3
+
 
 
             Start-Sleep -Seconds 1.5
@@ -235,6 +370,10 @@ while ($script_launched -eq $true) {
 
                 # Cre
                 New-ADUser -Name $new_employee_displayname -Instance $user_template
+
+
+
+
     
             } else {
     
@@ -243,10 +382,17 @@ while ($script_launched -eq $true) {
                 Clear-Host
                 help_Adst
             }
-        }   
-    } elseif ($choix_utilisateur -ieq "exit") {  
-        break
+            
+            
+
+        }
+
         
+
+    } elseif ($choix_utilisateur -ieq "exit") {
+        
+        break
+
     } else {
 
         Write-Host -ForegroundColor Red "`nUnknown command"
