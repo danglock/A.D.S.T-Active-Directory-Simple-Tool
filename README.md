@@ -72,6 +72,7 @@ Launch **launch.bat** file
 | **Command**  | **Description**                                                                 |
 |:-------------|:--------------------------------------------------------------------------------|
 | export_users | This command exports all AD users to a CSV file. The user must choose the path. |
+| export_user  | This command exports the attributes of the chosen user.                         |
 
 
 ### Azure AD commands
