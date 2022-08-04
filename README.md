@@ -15,7 +15,7 @@
 
 # Requirements
 
-<img align="right" width="400" height="200" src="https://logo-download.com/wp-content/data/images/png/Microsoft-Windows-logo.png">
+<img align="right" width="350" height="200" src="https://logo-download.com/wp-content/data/images/png/Microsoft-Windows-logo.png">
 
 For a more complete use, install the following modules:
 
