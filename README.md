@@ -57,6 +57,7 @@ Launch **launch.bat** file
 | find        | Find the SamAccountName of a user using his name or firstname |
 | find_dep    | Find the department of a user                                 |
 | find_bydep  | List all users of a department                                |
+| get_locked  | This command returns all users whose account is locked out.   |
 
 ### Utility Commands
 
