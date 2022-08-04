@@ -17,7 +17,7 @@
 
 For a more complete use, install the following modules:
 
-- [ActiveDirectory]()
+- [RSAT (Remote Server Administration Tools)]()
 ```PowerShell
 Install-WindowsFeature RSAT-AD-PowerShell
 ```
