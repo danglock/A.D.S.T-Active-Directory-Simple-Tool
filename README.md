@@ -47,6 +47,8 @@ Launch **launch.bat** file
 - [Utility commands](#utility-commands)
 - [Azure AD commands](#azure-ad-commands)
 
+*All commands are Incase sensitive*
+
 
 ### Info commands
 
