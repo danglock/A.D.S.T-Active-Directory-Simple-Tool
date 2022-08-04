@@ -17,7 +17,7 @@
 
 For a more complete use, install the following modules:
 
-<img align="right" width="100" height="100" src="https://logo-download.com/wp-content/data/images/png/Microsoft-Windows-logo.png">
+<img align="right" width="400" height="250" src="https://logo-download.com/wp-content/data/images/png/Microsoft-Windows-logo.png">
 
 
 - [RSAT (Remote Server Administration Tools)]()
