@@ -33,12 +33,6 @@ Install-Module ExchangeOnlineManagement
 
 
 
-# Hybrid AD / AAD infrastructure
-
-Il est possible de synchroniser une infrastructure cloud Azure Acrive Directory avec une infrastructure Active Directory
-déjà existante grâce à l'Active Directory.
-
-
 # Installation
 <h3><strong>Windows </strong>&nbsp;<img src="https://cdn.icon-icons.com/icons2/1488/PNG/512/5314-windows_102509.png" alt="" width="20" height="20" /></h3>
 
