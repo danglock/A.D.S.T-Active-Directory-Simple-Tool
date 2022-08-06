@@ -80,7 +80,7 @@ Launch **launch.bat** file
 
 ### Azure AD commands
 
-**! WARNING !**
+<p><font color="red">! WARNING !</font></p>
 
 If you want to use Azure AD commands, you have to set ``$use_AAD`` to ``$true`` in the **configuration file**, on line 3
 
