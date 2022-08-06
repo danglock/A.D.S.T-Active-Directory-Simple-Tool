@@ -89,7 +89,3 @@ Launch **launch.bat** file
 - Bulk operations commands (export/import users...)
 - Copy of users
 - Vulnerability scan
-
-
-***
-Version = v2
