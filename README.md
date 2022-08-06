@@ -53,13 +53,13 @@ Launch **launch.bat** file
 ### Info commands
 
 | **Command** | **Description**                                               |
-|:------------|:--------------------------------------------------------------|
-| help        | List all commands of the tool                                 |
-| InfoUser    | Return user information from his SamAccountName               |
-| find        | Find the SamAccountName of a user using his name or firstname |
-| find_dep    | Find the department of a user                                 |
-| find_bydep  | List all users of a department                                |
-| get_locked  | This command returns all users whose account is locked out.   |
+|:------------|:-------------------------------------------------------------------------------------------------------------------------------|
+| help        | List all commands of the tool                                                                                                  |
+| InfoUser    | Return user information from his SamAccountName                                                                                |
+| find        | Find the SamAccountName of a user using his name or firstname                                                                  |
+| find_dep    | Find the department of a user                                                                                                  |
+| find_bydep  | List all users of a department                                                                                                 |
+| get_locked  | Cette commande liste tous les utilisateurs dont le compte est verrouillé et vous donne ensuite la possibilité de les débloquer |
 
 ### Utility Commands
 
